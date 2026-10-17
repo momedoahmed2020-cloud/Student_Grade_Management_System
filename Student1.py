@@ -21,16 +21,17 @@ class Student:
     def display_info(self):
         print("Student Name:", self.name)
         print("Student ID:", self.student_id)
-        print("Grade:", self.calculate_grade())
+        print("Grade:", self.__grade)
+        print("Average Grade:", self.calculate_average())
 
 
 student1 = Student("Mohamed Ahmed", "MH2500510", 100)
 
-student1.add_grade(90)
 student1.add_grade(95)
+student1.add_grade(90)
 
-print("Grades:", student1.get_grade())
-print("Calculated Grade:", student1.calculate_grade())
 print("Average Grade:", student1.calculate_average())
+print("Calculated Grade:", student1.calculate_grade())
+print("Grades:", student1.get_grade())
 
 student1.display_info()
