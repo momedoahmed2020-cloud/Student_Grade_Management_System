@@ -7,7 +7,7 @@ class Student:
     def get_grade(self):
         return self.__grade
 
-    def add_grade(self, grade):
+    def set_grade(self, grade):
         self.__grade.append(grade)
 
     def calculate_average(self):
@@ -27,11 +27,11 @@ class Student:
 
 student1 = Student("Mohamed Ahmed", "MH2500510", 100)
 
-student1.add_grade(95)
-student1.add_grade(90)
+student1.set_grade(95)
+student1.set_grade(90)
 
-print("Average Grade:", student1.calculate_average())
-print("Calculated Grade:", student1.calculate_grade())
 print("Grades:", student1.get_grade())
+print("Average Grade:", student1.calculate_average())   
+print("Calculated Grade:", student1.calculate_grade())
 
 student1.display_info()
