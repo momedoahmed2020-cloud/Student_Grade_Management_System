@@ -10,9 +10,13 @@ class Student:
     def display_info(self):
         print("Student Name:", self.name)
         print("Student ID:", self.student_id)
-        print("Grade:", self.calculate_grade())
+        print("Grade:", self.grade)
 
 class UndergraduateStudent(Student):
+    def __init__(self, name, student_id, grade, major):
+        super().__init__(name, student_id, grade)
+        self.major = major
+
     def calculate_grade(self):
         if self.grade >= 70:
             return "First Class"
@@ -21,29 +25,41 @@ class UndergraduateStudent(Student):
         elif self.grade >= 50:
             return "Lower Second Class"
         elif self.grade >= 40:
-            return "Third Class" 
+            return "Third Class"
         else:
-            return "Fail"
+            return "Fail"   
+
+    def display_info(self):
+        super().display_info()
+        print("Major:", self.major)
+        print("Undergraduate Student")
 
 class GraduateStudent(Student):
+    def __init__(self, name, student_id, grade, program_title):
+        super().__init__(name, student_id, grade)
+        self.program_title = program_title
+
     def calculate_grade(self):
         if self.grade >= 70:
-            return "Distinction"
+            return "Pass with Distinction"
         elif self.grade >= 60:
-            return "Merit"
+            return "Pass with Merit"
         elif self.grade >= 50:
             return "Pass"
         else:
             return "Fail"
 
+    def display_info(self):
+        super().display_info()
+        print("Program Title:", self.program_title)
+        print("Graduate Student")
 
-student1 = UndergraduateStudent("Mohamed Ahmed", "MH2500510", 100)
-student2 = GraduateStudent("Fatima Hassan", "FH2500511", 85)
 
-print("Undergraduate Student:")
-student1.display_info()
+undergraduate_student1 = UndergraduateStudent("Ali Hassan", "AH2500511", 95, "Computer Science")
+graduate_student1 = GraduateStudent("Fatima Ali", "FA2500512", 85, "Master of Science in Computer Science")
 
+undergraduate_student1.display_info()
 print()
 
-print("Graduate Student:")
-student2.display_info()
+graduate_student1.display_info()
+print()
